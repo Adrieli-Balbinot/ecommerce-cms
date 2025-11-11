@@ -1,21 +1,24 @@
+
 import { BrandDataTable } from "./data-table/brand-data-table"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
 import { Plus, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { BreadCrumb } from "@/components/layout/brand-crumb"
 import { Outlet, useNavigate } from "react-router-dom"
+import { BreadCrumb } from "@/components/layout/brand-crumb"
 
 export function BrandLayout() {
 
     const navigate = useNavigate();
-
+    
     function handleCreate() {
-        navigate("/brands/new");
+        navigate('/brands/new');
     }
 
     return (
         <div className="p-4">
+
             <BreadCrumb title="Marcas" />
+
             <div className="flex flex-col py-4 gap-4">
 
                 <div className="flex flex-row justify-end gap-4 my-4">
@@ -26,12 +29,12 @@ export function BrandLayout() {
                         </InputGroupAddon>
                     </InputGroup>
                     <Button
-                        onClick={handleCreate}>
+                        onClick={handleCreate}
+                    >
                         <Plus />
-                      Adicionar
+                        Adicionar
                     </Button>
                 </div>
-
 
                 <div>
                     <BrandDataTable />
@@ -39,7 +42,6 @@ export function BrandLayout() {
                 </div>
 
             </div>
-
         </div>
     )
 }

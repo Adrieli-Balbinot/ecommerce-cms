@@ -1,22 +1,18 @@
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { Button } from "../ui/button"
-import { EditIcon } from "lucide-react"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
+import { EditIcon } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-type DataTableActionPropos = {
+type DataTableActionProps = {
     itemId: string | number;
 }
-
-export function DataTableAction({ itemId }: DataTableActionPropos) {
-
+export function DataTableAction({
+    itemId
+}: DataTableActionProps) {
     const location = useLocation();
     const navigate = useNavigate();
 
-    function hableNavigateToId() {
+    function handleNavigateToId() {
         const path = location.pathname;
         navigate(`${path}/${itemId}`);
     }
@@ -24,12 +20,18 @@ export function DataTableAction({ itemId }: DataTableActionPropos) {
     return (
         <Tooltip>
             <TooltipTrigger asChild>
-                <Button variant="outline" size="icon" onClick={hableNavigateToId}>
+                <Button
+                    variant='outline'
+                    size='icon'
+                    onClick={handleNavigateToId}
+                >
                     <EditIcon />
-                </Button></TooltipTrigger>
+                </Button>
+            </TooltipTrigger>
             <TooltipContent>
                 <p>Editar/remover registro</p>
             </TooltipContent>
         </Tooltip>
     )
+
 }

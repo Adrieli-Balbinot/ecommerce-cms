@@ -1,3 +1,4 @@
+
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
 import { Plus, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -8,14 +9,16 @@ import { ProductDataTable } from "./data-table/product-data-table";
 export function ProductLayout() {
 
     const navigate = useNavigate();
-
+    
     function handleCreate() {
-        navigate("/products/new");
+        navigate('/products/new');
     }
 
     return (
         <div className="p-4">
-            <BreadCrumb title="Produtos" />
+
+            <BreadCrumb title="Marcas" />
+
             <div className="flex flex-col py-4 gap-4">
 
                 <div className="flex flex-row justify-end gap-4 my-4">
@@ -26,12 +29,12 @@ export function ProductLayout() {
                         </InputGroupAddon>
                     </InputGroup>
                     <Button
-                        onClick={handleCreate}>
+                        onClick={handleCreate}
+                    >
                         <Plus />
-                      Adicionar
+                        Adicionar
                     </Button>
                 </div>
-
 
                 <div>
                     <ProductDataTable />
@@ -39,7 +42,6 @@ export function ProductLayout() {
                 </div>
 
             </div>
-
         </div>
     )
 }
